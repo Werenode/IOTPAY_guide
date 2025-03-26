@@ -1,3 +1,21 @@
+# 🛠 IOTPAY Dashboard – Full Guide
+
+## Table of Contents
+- [Getting Started Locally](#getting-started-locally)
+- [Authentication](#step-1-authentication)
+- [Dashboard Layout](#step-2-dashboard-layout-overview)
+- [Address Management](#step-3-managing-addresses-and-activity)
+- [DID Management](#step-4-managing-dids-decentralized-identifiers)
+- [Fleet Management](#step-5-managing-fleets)
+- [Service Management](#step-6-managing-services)
+- [VC Management](#step-7-managing-verifiable-credentials-vcs)
+- [Payment Configuration](#step-8-configuring-payments-between-vcs)
+- [Handle signing and payment](#step-9-manual-signing-and-payments-debugtest-tools)
+- [Glossary](#glossary)
+- [Best Practices](#best-practices)
+- [Security Considerations](#security-considerations)
+
+## Getting Started Locally
 
 <details>
   <summary> Getting Started Locally </summary>
@@ -62,30 +80,32 @@ This will start a client that communicates with the backend via MQTT protocol.
 </details>
 
 
-# Using the Dashboard
+___
+
+# 🛠 IOTPAY Dashboard – Full Guide
 
 The Dashboard provides a visual interface to manage fleets, services, and IoT devices through your Web3 wallet. Below is a step-by-step guide to configure and operate your system.
 
-### About the “Delegated” Option in Forms
+### About the "Delegated" Option in Forms
 
-Across most forms in the Dashboard, you’ll notice a checkbox labeled “Delegated”.
+Across most forms in the Dashboard, you'll notice a checkbox labeled "Delegated".
 This option determines how a transaction will be sent to the blockchain:
 
 ___
 
-If “Delegated” is not checked:
+If "Delegated" is not checked:
 
 -	The transaction will be sent directly from your wallet using MetaMask.
 
 -	You will see a MetaMask popup requesting you to confirm and broadcast the transaction.
 
--	You’ll need to pay the gas fees yourself.
+-	You'll need to pay the gas fees yourself.
 
 ___
 
-If “Delegated” is checked:
+If "Delegated" is checked:
 
--	You will sign the transaction data using your wallet, but you won’t send it yourself.
+-	You will sign the transaction data using your wallet, but you won't send it yourself.
 
 -	The dashboard will have fields for how long your signature should remain valid (default is 5 minutes).
 
@@ -106,7 +126,7 @@ To access and use the Dashboard, you first need to authenticate using MetaMask a
 
 ### Install MetaMask
 
-If MetaMask is not detected, you’ll see a prompt to install it.
+If MetaMask is not detected, you'll see a prompt to install it.
 Download it from the official website and add it to your browser.
 
 ![noMetamask](images/auth/noMetamask.png)
@@ -127,18 +147,18 @@ If you already have an account:
 -	Enter your email and password in the login form.
 -	MetaMask will automatically request permission to connect to the site — this is expected and required for secure interaction.
 
-After successful login, you’ll be redirected to the main dashboard interface.
+After successful login, you'll be redirected to the main dashboard interface.
 
 ![logIn](images/auth/logIn.png)
 
 
 # Step 2: Dashboard Layout Overview
 
-After logging in, you’ll arrive at the main dashboard screen. Here’s what you’ll see:
+After logging in, you'll arrive at the main dashboard screen. Here's what you'll see:
 
 ### Sidebar Menu (Left Side)
 
-On the left side of the screen, you’ll find the main navigation menu.
+On the left side of the screen, you'll find the main navigation menu.
 It gives you access to all key sections of the system, such as:
   -	Fleets
 	-	Services
@@ -154,7 +174,7 @@ At the top, there are two key icons:
 
 - The first few characters of your connected wallet address.
 
--	The display name stored in the platform database (or undefined if this address hasn’t been used yet).
+-	The display name stored in the platform database (or undefined if this address hasn't been used yet).
 
 Clicking the account icon opens a dropdown with a Logout button, allowing you to safely disconnect from the platform.
 
@@ -165,7 +185,7 @@ Clicking the account icon opens a dropdown with a Logout button, allowing you to
 This table displays all the addresses you operate with, including:
 
 -	Your connected wallet address
--	Any external addresses you’ve manually added via the form below (e.g., IoT devices)
+-	Any external addresses you've manually added via the form below (e.g., IoT devices)
 
 These addresses are pulled from your wallet and the platform database.
 
@@ -186,7 +206,7 @@ This gives you a quick view of recent activity such as:
 
 Use this form to add external addresses (e.g., your devices) that you want to track or manage.
 
-You’ll be asked to enter:
+You'll be asked to enter:
 -	The address
 -	A custom label/name for easier identification
 
@@ -200,7 +220,7 @@ This section of the Dashboard is dedicated to viewing and creating DIDs on the p
 
 **Address Cards**
 
-At the top of the page, you’ll see a list of address cards, based on the addresses from Table 1 (see previous section).
+At the top of the page, you'll see a list of address cards, based on the addresses from Table 1 (see previous section).
 Each card shows:
 
 -	The custom label (name) of the address
@@ -255,13 +275,13 @@ The Fleets tab allows you to create and manage groups of devices and services un
 
 ## Create New Fleet
 
-At the top of the page, you’ll see a “Create Fleet” button that opens a form.
+At the top of the page, you'll see a "Create Fleet" button that opens a form.
 
 To create a new fleet, fill out the following fields:
 
--	Owner Address – the address that will be the fleet’s administrator
+-	Owner Address – the address that will be the fleet's administrator
 -	Fleet Name – a label to help you identify the fleet
--	Data – optional information explaining the fleet’s purpose or use case (also used to help generate a unique fleet identifier)
+-	Data – optional information explaining the fleet's purpose or use case (also used to help generate a unique fleet identifier)
 -	Start & End Dates – the validity period of the fleet (e.g., when the fleet becomes active and when it expires)
 
 You can choose to send the transaction directly or delegated
@@ -270,11 +290,11 @@ You can choose to send the transaction directly or delegated
 
 ## Fleet Cards
 
-Below the creation form, you’ll see cards for each fleet that your account manages. Each card displays:
+Below the creation form, you'll see cards for each fleet that your account manages. Each card displays:
 
 -	The Fleet Name
 -	Its Unique Fleet ID
--	The Owner’s Address
+-	The Owner's Address
 -	The Status (e.g., active, expired, or pending)
 
 These cards offer a quick overview of your organizational structure
@@ -295,7 +315,7 @@ The panel shows all essential information about the selected fleet, along with s
 
 **Transaction Table**
 
-Below the action buttons, you’ll see a table that lists all relevant transactions related to this fleet, including:
+Below the action buttons, you'll see a table that lists all relevant transactions related to this fleet, including:
 -	Verifiable Credential (VC) creation and updates
 -	Service additions or removals
 -	Any actions tied to devices or addresses linked to the fleet
@@ -314,7 +334,7 @@ The Services tab lets you create and manage service units within your fleets. Ea
 
 ## Create New Service
 
-At the top of the page, click the “Create Service” button to open the creation form.
+At the top of the page, click the "Create Service" button to open the creation form.
 
 To register a new service, fill out the following fields:
 
@@ -361,14 +381,14 @@ The VC tab provides a complete overview of all Verifiable Credentials registered
 
 ## VC Cards
 
-At the top of the page, you’ll see cards for all VCs currently on the platform.
+At the top of the page, you'll see cards for all VCs currently on the platform.
 
 Each VC card displays:
 
 -	The name of the VC
 -	Its description
 -	The associated service
--	The VC’s unique identifier
+-	The VC's unique identifier
 -	The DID address it is linked to
 
 ⚠️ Note: When a device creates a new VC, it will initially appear in the pending state, awaiting confirmation from the service manager. (This functionality will be available starting March 26th.)
@@ -387,7 +407,7 @@ This view helps you understand relationships and dependencies between devices/se
 Clicking on a VC card opens a detailed panel where you can:
 -	Edit the name or description of the VC
 -	Delete the VC
-- View a transaction/event table, listing all on-chain actions related to this VC’s identifier
+- View a transaction/event table, listing all on-chain actions related to this VC's identifier
 
 This allows full lifecycle management of VCs directly through the Dashboard.
 
@@ -413,7 +433,7 @@ Payment setup is split into two phases to ensure security and mutual agreement:
 
 On the main screen, start by entering the two VC IDs involved in the payment.
 
-If you’re logged in as the managerFrom, you’ll see a form with the following fields:
+If you're logged in as the managerFrom, you'll see a form with the following fields:
 
 | Field | Description |
 |-------|-------------|
@@ -434,7 +454,7 @@ Once filled and signed, this form generates a JSON object that the receiving sid
 
 ## Payment Confirmation (managerTo)
 
-If you’re logged in as the managerTo, you’ll see a form that allows you to paste the signed JSON from managerFrom.
+If you're logged in as the managerTo, you'll see a form that allows you to paste the signed JSON from managerFrom.
 
 - The form will automatically populate with the received values.
 - You can verify and confirm the data.
@@ -479,7 +499,7 @@ You can add multiple addresses in a single action, enabling flexible control ove
 
 ## Payment Transaction History
 
-At the bottom of the page, you’ll find a table listing all payment transactions associated with this setup.
+At the bottom of the page, you'll find a table listing all payment transactions associated with this setup.
 
 The payment key is defined by the unique triplet: (serviceFrom, VCFrom, VCTo)
 
@@ -549,6 +569,29 @@ Required fields:
 Once submitted, the transaction will be sent to the blockchain, and the payment will be completed (assuming all prior steps are valid).
 
 ![handle_payment](images/handle/payment.png)
+
+# Glossary
+
+## Core Terms
+- **DID (Decentralized Identifier)**: A unique identifier that enables verifiable, self-sovereign digital identity
+- **VC (Verifiable Credential)**: A tamper-evident credential that has been cryptographically signed
+- **Fleet**: A group of devices and services managed under a common structure
+- **Service**: A unit within a fleet that manages specific functionalities
+- **RTN (Request Token Number)**: A one-time authorization code for payment verification
+
+## Technical Terms
+- **Gas Fee**: The cost required to perform a transaction on the blockchain
+- **Delegated Transaction**: A transaction signed by the user but executed by the server
+- **Multi-signature**: A security feature requiring multiple approvals for a transaction
+- **Validator**: An address authorized to approve transactions of payments
+- **Whitelist**: A list of approved addresses for specific operations
+
+
+## Support
+For additional support:
+- Check the [GitHub Issues](https://github.com/Werenode/dashboard_for_iotpay/issues)
+- Contact zhenyazhdarkin@gmail.com
+
 
 
 
